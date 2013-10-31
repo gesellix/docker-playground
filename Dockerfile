@@ -34,7 +34,7 @@ run cd ~ && curl https://raw.github.com/creationix/nvm/master/install.sh | sh
 run cd ~ && . .nvm/nvm.sh && nvm install 0.11 && nvm use 0.11
 run /bin/bash -c 'echo ". .nvm/nvm.sh && nvm use 0.11"' >> /.bashrc
 
-run /bin/bash -c 'echo "/usr/local/bin/couchdb"' >> /.bashrc
+run /bin/bash -c 'echo "/usr/local/bin/couchdb &"' >> /.bashrc
 run /bin/bash -c 'echo "/elasticsearch-0.90.3/bin/elasticsearch"' >> /.bashrc
 expose :8101
 expose :9200
