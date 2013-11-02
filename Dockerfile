@@ -28,6 +28,8 @@ run apt-get install -y oracle-java7-installer
 run cd /tmp && wget https://download.elasticsearch.org/elasticsearch/elasticsearch/elasticsearch-0.90.3.tar.gz
 run cd /tmp && tar xfz elasticsearch-0.90.3.tar.gz
 run mv /tmp/elasticsearch-0.90.3 /
+run /elasticsearch-0.90.3/bin/plugin -install elasticsearch/elasticsearch-river-couchdb/1.2.0
+run /elasticsearch-0.90.3/bin/plugin -install mobz/elasticsearch-head
 
 # install nvm (npm/nodejs)
 run cd ~ && curl https://raw.github.com/creationix/nvm/master/install.sh | sh
