@@ -16,7 +16,7 @@ run apt-get install -y erlang libmozjs-dev libicu-dev libcurl4-gnutls-dev libtoo
 run cd /tmp && wget http://ftp-stud.hs-esslingen.de/pub/Mirrors/ftp.apache.org/dist/couchdb/source/1.5.0/apache-couchdb-1.5.0.tar.gz
 run cd /tmp && tar xfz apache-couchdb-1.5.0.tar.gz
 run cd /tmp/apache-couchdb-1.5.0 && ./configure && make && make install
-run printf "[httpd]\nport = 8101\nbind_address = 0.0.0.0" > /usr/local/etc/couchdb/local.d/docker.ini
+#run printf "[httpd]\nport = 8101\nbind_address = 0.0.0.0" > /usr/local/etc/couchdb/local.d/docker.ini
 
 # install Java 7
 run apt-get install software-properties-common python-software-properties -y
@@ -39,11 +39,16 @@ run /bin/bash -c 'echo ". .nvm/nvm.sh && nvm use 0.11"' >> /.bashrc
 
 run /bin/bash -c 'echo "/usr/local/bin/couchdb &"' >> /.bashrc
 run /bin/bash -c 'echo "/elasticsearch-0.90.3/bin/elasticsearch"' >> /.bashrc
-expose :8101
+expose :5984
 expose :9200
 expose :9300
 
 cmd ["/bin/bash"]
 
+
 # docker build -t="gesellix/stuff" .
 # docker run -i -t gesellix/stuff
+
+# FORWARD_DOCKER_PORTS='true' vagrant up
+# vagrant ssh
+# docker run -d -p 49101:5984 -i -t gesellix/stuff
