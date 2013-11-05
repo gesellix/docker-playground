@@ -12,7 +12,8 @@ run apt-get install -y -q git curl wget
 # install CouchDB
 run apt-get install -y make gcc build-essential
 run apt-get install -y erlang libmozjs-dev libicu-dev libcurl4-gnutls-dev libtool
-run cd /tmp && wget http://apache.mirror.digionline.de/couchdb/source/1.4.0/apache-couchdb-1.4.0.tar.gz
+#run cd /tmp && wget http://apache.mirror.digionline.de/couchdb/source/1.4.0/apache-couchdb-1.4.0.tar.gz
+run cd /tmp && wget http://ftp-stud.hs-esslingen.de/pub/Mirrors/ftp.apache.org/dist/couchdb/source/1.5.0/apache-couchdb-1.5.0.tar.gz
 run cd /tmp && tar xfz apache-couchdb-1.4.0.tar.gz
 run cd /tmp/apache-couchdb-1.4.0 && ./configure && make && make install
 run printf "[httpd]\nport = 8101\nbind_address = 0.0.0.0" > /usr/local/etc/couchdb/local.d/docker.ini
