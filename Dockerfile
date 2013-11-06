@@ -37,11 +37,17 @@ run cd ~ && curl https://raw.github.com/creationix/nvm/master/install.sh | sh
 run cd ~ && . .nvm/nvm.sh && nvm install 0.11 && nvm use 0.11
 run /bin/bash -c 'echo ". .nvm/nvm.sh && nvm use 0.11"' >> /.bashrc
 
+# install Tomcat 7
+run apt-get -y install tomcat7
+
 run /bin/bash -c 'echo "/usr/local/bin/couchdb &"' >> /.bashrc
 run /bin/bash -c 'echo "/elasticsearch-0.90.3/bin/elasticsearch"' >> /.bashrc
+run /bin/bash -c 'echo "service tomcat7 start && tail -f /var/lib/tomcat7/logs/catalina.out  &"' >> /.bashrc
+
 expose :5984
 expose :9200
 expose :9300
+expose :8080
 
 cmd ["/bin/bash"]
 
